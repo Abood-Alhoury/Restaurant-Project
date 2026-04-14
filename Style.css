@@ -1,0 +1,402 @@
+/* Style.css - قسم الهيدر وقائمة التنقل */
+
+:root {
+    --primary-color: #e67e22; /* البرتقالي الدافئ للمطاعم */
+    --secondary-color: #2c3e50; /* الأزرق الداكن العميق */
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+/* تنسيق الحاوية الرئيسية للهيدر */
+#main-header {
+    background-color: var(--secondary-color);
+    padding: 0 10%; /* مسافة جانبية لتركيز المحتوى في المنتصف */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: sticky; /* جعل الهيدر ثابتاً عند التمرير */
+    top: 0;
+    z-index: 1000;
+}
+
+/* عنوان الموقع / اللوغو */
+#site-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* قائمة الروابط */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* مسافة بين الروابط */
+    margin: 0;
+    padding: 0;
+}
+
+/* تنسيق الرابط الفردي */
+.nav-link {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: var(--transition);
+    position: relative;
+}
+
+/* تأثير عند تمرير الماوس (Hover) */
+.nav-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* خط سفلي يظهر عند التمرير */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    right: 50%;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+    right: 10%;
+}
+
+/* تمييز الصفحة النشطة (Active) */
+.nav-link.active {
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+.nav-link.active::after {
+    display: none;
+}
+
+/* تحسين العرض على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    #main-header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+    .nav-list {
+        margin-top: 15px;
+        gap: 10px;
+    }
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 5px 10px;
+    }
+}
+
+/* Style.css - تنسيق جسم الموقع */
+
+/* الحاوية الرئيسية */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* تنسيق الأقسام كبطاقات (Cards) */
+.card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* ظل ناعم */
+    border: 1px solid #eee;
+}
+
+/* العناوين الفرعية */
+.section-title {
+    color: var(--secondary-color);
+    border-right: 5px solid var(--primary-color); /* خط جانبي برتقالي */
+    padding-right: 15px;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* تنسيق الجدول العصري */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: var(--white);
+}
+
+.styled-table thead tr {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: right;
+}
+
+.styled-table th, .styled-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #fffaf5; /* تظليل خفيف عند تمرير الماوس */
+}
+
+/* تنسيق قسم الروابط والملاحظات (Grid) */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* تقسيم القسم لعمودين */
+    gap: 20px;
+}
+
+.info-card {
+    background: #fdfdfd;
+    border-radius: 12px;
+    padding: 20px;
+    border-right: 4px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.info-card h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* تذييل الصفحة */
+#main-footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #f4f4f4;
+    color: #777;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+/* تنسيق منطقة الأزرار */
+.action-area {
+    text-align: center; /* لتوسيط الزر في منتصف الصفحة */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* تنسيق زر المتابعة */
+#btn-continue {
+    background-color: var(--primary-color); /* البرتقالي المعتمد */
+    color: white;
+    padding: 12px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px; /* حواف دائرية عصرية */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3); /* ظل بلون البرتقالي */
+}
+
+/* تأثير عند تمرير الماوس */
+#btn-continue:hover {
+    background-color: #d35400; /* درجة أغمق قليلاً */
+    transform: translateY(-3px); /* رفعة بسيطة للأعلى */
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+}
+
+/* تأثير عند الضغط */
+#btn-continue:active {
+    transform: translateY(-1px);
+}
+
+/* Style.css - تنسيق نموذج إكمال الطلب */
+
+/* حاوية النموذج */
+#order-form-section {
+    max-width: 700px;
+    margin: 40px auto;
+    border-top: 5px solid var(--primary-color); /* تمييز الجزء العلوي */
+}
+
+#order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* مسافة بين الحقول */
+}
+
+/* تنسيق مجموعة الإدخال (التسمية + الحقل) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+/* تنسيق حقول الإدخال النصية */
+.form-control {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #fcfcfc;
+    outline: none;
+}
+
+/* تأثير عند التركيز على الحقل (Focus) */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(230, 126, 34, 0.2);
+    background-color: #fff;
+}
+
+/* تحسين شكل حقل الإيميل وتاريخ الميلاد */
+input::placeholder {
+    color: #ccc;
+    font-size: 0.85rem;
+}
+
+/* تنسيق زر الإرسال داخل النموذج */
+#btn-submit {
+    align-self: center; /* توسيط الزر */
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 60px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+#btn-submit:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05); /* تكبير بسيط عند التمرير */
+}
+
+
+/* ===============================
+   تحسين جدول الوجبات والتفاصيل
+================================ */
+
+/* صف الوجبة */
+.meal-row {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.meal-row:hover {
+    background-color: #fff3e8;
+}
+
+/* صف التفاصيل */
+.details-row {
+    background-color: #fffaf5;
+}
+
+/* كرت التفاصيل */
+.meal-expanded-card {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+/* صورة الوجبة */
+.meal-img-detail {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.meal-img-detail:hover {
+    transform: scale(1.05);
+}
+
+/* نص التفاصيل */
+.details-text {
+    flex: 1;
+    text-align: right;
+}
+
+.details-text p {
+    margin: 8px 0;
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.details-text strong {
+    color: var(--secondary-color);
+}
+
+/* تحسين checkbox */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* تنسيق الصف عند التحديد */
+.select-meal:checked {
+    outline: 2px solid var(--primary-color);
+}
+
+/* تأثير ظهور التفاصيل (smooth) */
+.details-row {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .meal-expanded-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .meal-img-detail {
+        width: 100%;
+        height: auto;
+    }
+
+    .details-text {
+        text-align: center;
+    }
+}

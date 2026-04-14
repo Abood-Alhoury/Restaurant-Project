@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الوجبات | مطعم السعادة</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body id="meals-page">
+
+    <header id="main-header">
+        <div class="logo-area">
+            <h1 id="site-title">مطعم السعادة</h1>
+        </div>
+        <nav id="main-nav">
+            <ul class="nav-list">
+                <li><a href="home.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="Meals.html" class="nav-link active">قائمة الوجبات</a></li>
+                <li><a href="AboutUs.html" class="nav-link">من نحن</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="meals-section" class="card">
+            <h2 class="section-title">اختر وجباتك المفضلة</h2>
+            
+            <div class="table-responsive">
+                <table id="meals-table" class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>الرمز</th>
+                            <th>الوجبة</th>
+                            <th>السعر</th>
+                            <th>إظهار التفاصيل</th>
+                            <th>اختيار</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="meal-row">
+                            <td>SF-001</td>
+                            <td>وجبة سمك بوري مشوي لشخصين</td>
+                            <td>110,000 ل.س</td>
+                            <td><input type="checkbox" class="detail-check"></td>
+                            <td><input type="checkbox" class="select-meal" data-price="110000" data-name="وجبة سمك بوري"></td>
+                        </tr>
+
+                      <tr class="details-row" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-expanded-card">
+                                <img src="Images/fish.jfif" class="meal-img-detail">                                <div class="details-text">
+                                    <p><strong>المطبخ:</strong> المصري التقليدي</p>
+                                    <p><strong>التصنيف:</strong> مأكولات بحرية فاخرة</p>
+                                    <p><strong>الوصف:</strong> سمك بوري طازج يتم تتبيله بخليط من الثوم والليمون والأعشاب المتوسطية، ثم يُشوى على الفحم ليحصل على نكهة مدخنة مميزة.</p>
+                                    <p><strong>المكونات:</strong> سمك بوري، ثوم، عصير ليمون، زيت زيتون، أوريجانو، فلفل أسود، ملح بحري.</p>
+                                    <p><strong>يُقدم مع:</strong> أرز صيادية + سلطة طحينة + شرائح ليمون.</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                        <tr class="meal-row">
+                            <td>SF-002</td>
+                            <td>وجبة برغر عائلي</td>
+                            <td>85,000 ل.س</td>
+                            <td><input type="checkbox" class="detail-check"></td>
+                            <td><input type="checkbox" class="select-meal" data-price="85000" data-name="برغر عائلي"></td>
+                        </tr>
+                        <tr class="details-row" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-expanded-card">
+                                <img src="Images/burger.jfif" class="meal-img-detail">
+                                <div class="details-text">
+                                    <p><strong>التصنيف:</strong> وجبات سريعة</p>
+                                    <p><strong>الوصف:</strong> برغر عائلي ضخم يحتوي على طبقتين من اللحم المشوي مع جبنة ذائبة وخضار طازجة، مثالي للمشاركة.</p>
+                                    <p><strong>المكونات:</strong> لحم بقري طازج، جبنة شيدر، خس، طماطم، مخلل، صوص خاص، خبز بالسمسم.</p>
+                                    <p><strong>يُقدم مع:</strong> بطاطا مقلية + صوصات متنوعة (باربكيو، مايونيز، كاتشب).</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                        <tr class="meal-row">
+                            <td>SF-003</td>
+                            <td>بيتزا مارغريتا كبيرة</td>
+                            <td>65,000 ل.س</td>
+                            <td><input type="checkbox" class="detail-check"></td>
+                            <td><input type="checkbox" class="select-meal" data-price="65000" data-name="بيتزا مارغريتا"></td>
+                        </tr>
+                      <tr class="details-row" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-expanded-card">
+                                <img src="Images/bizza.avif" class="meal-img-detail">
+                                <div class="details-text">
+                                    <p><strong>المطبخ:</strong> الإيطالي</p>
+                                    <p><strong>التصنيف:</strong> بيتزا كلاسيكية</p>
+                                    <p><strong>الوصف:</strong> بيتزا أصلية بعجينة مخمرة لمدة 24 ساعة، مغطاة بصلصة الطماطم الإيطالية وجبنة الموزاريلا الطازجة مع أوراق الريحان.</p>
+                                    <p><strong>المكونات:</strong> عجينة بيتزا، صوص بندورة، موزاريلا، ريحان، زيت زيتون.</p>
+                                    <p><strong>يُقدم مع:</strong> صوص حار + صوص ثوم.</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                        <tr class="meal-row">
+                            <td>SF-004</td>
+                            <td>وجبة شاورما عربي دبل</td>
+                            <td>45,000 ل.س</td>
+                            <td><input type="checkbox" class="detail-check"></td>
+                            <td><input type="checkbox" class="select-meal" data-price="45000" data-name="شاورما دبل"></td>
+                        </tr>
+                  <tr class="details-row" style="display: none;">
+                    <td colspan="5">
+                        <div class="meal-expanded-card">
+                            <img src="Images/shawrma.avif" class="meal-img-detail">
+                            <div class="details-text">
+                                <p><strong>المطبخ:</strong> الشامي</p>
+                                <p><strong>التصنيف:</strong> وجبات سريعة شرقية</p>
+                                <p><strong>الوصف:</strong> شاورما دجاج متبلة بتوابل خاصة، ملفوفة بخبز عربي مع صوص الثوم والمخلل، بحجم عائلي دبل.</p>
+                                <p><strong>المكونات:</strong> دجاج متبل، ثوم، مخلل، بطاطا، خبز عربي.</p>
+                                <p><strong>يُقدم مع:</strong> بطاطا مقلية + ثوم إضافي.</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                        <tr class="meal-row">
+                            <td>SF-005</td>
+                            <td>سلطة سيزر بالدجاج</td>
+                            <td>35,000 ل.س</td>
+                            <td><input type="checkbox" class="detail-check"></td>
+                            <td><input type="checkbox" class="select-meal" data-price="35000" data-name="سلطة سيزر"></td>
+                        </tr>
+                        <tr class="details-row" style="display: none;">
+                            <td colspan="5">
+                                <div class="meal-expanded-card">
+                                    <img src="Images/sizar.avif" class="meal-img-detail">
+                                    <div class="details-text">
+                                        <p><strong>التصنيف:</strong> وجبات صحية</p>
+                                        <p><strong>الوصف:</strong> سلطة سيزر غنية بالبروتين تحتوي على دجاج مشوي طري مع خس طازج وصوص كريمي مميز.</p>
+                                        <p><strong>المكونات:</strong> خس روماني، دجاج مشوي، بارميزان، خبز محمص، صوص سيزر.</p>
+                                        <p><strong>مناسبة لـ:</strong> الحميات الغذائية والوجبات الخفيفة.</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="action-area">
+                <button id="btn-continue" class="btn-link">متابعة</button>
+            </div>
+        </section>
+
+        <section id="order-form-section" class="card" style="display: none;">
+            <h2 class="section-title">إكمال الطلب</h2>
+            <form id="order-form">
+                <div class="form-group">
+                    <label>الاسم الكامل (بالعربية فقط):</label>
+                    <input type="text" id="full-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>الرقم الوطني (11 خانة):</label>
+                    <input type="text" id="national-id" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>تاريخ الولادة (dd-mm-yyyy):</label>
+                    <input type="text" id="birth-date" class="form-control" placeholder="01-01-1990">
+                </div>
+                <div class="form-group">
+                    <label>رقم الموبايل:</label>
+                    <input type="text" id="phone" class="form-control" placeholder="09xxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>الإيميل:</label>
+                    <input type="email" id="email" class="form-control">
+                </div>
+                <button type="submit" id="btn-submit" class="btn-link">إرسال</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; 2026 - SVU S25</p>
+    </footer>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="myFunctions.js"></script>
+</body>
+</html>
