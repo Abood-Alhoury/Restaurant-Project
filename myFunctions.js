@@ -1,10 +1,9 @@
 $(document).ready(function() {
-    // 1. إظهار وإخفاء تفاصيل الوجبات عند الضغط على المربع 
+
     $('.detail-check').change(function() {
         $(this).closest('tr').next('.details-row').fadeToggle(300);
     });
 
-    // 2. إظهار نموذج الطلب عند الضغط على "متابعة" 
     $('#btn-continue').click(function() {
         if ($('.select-meal:checked').length > 0) {
             $('#order-form-section').slideDown();
@@ -12,62 +11,61 @@ $(document).ready(function() {
                 scrollTop: $("#order-form-section").offset().top
             }, 800);
         } else {
-            alert("يرجى اختيار وجبة واحدة على الأقل للمتابعة.");
+            alert("يرجى اختيار وجبة واحدة على الأقل");
         }
     });
 
-    // 3. التحقق من صحة البيانات عند الإرسال 
     $('#order-form').submit(function(e) {
         e.preventDefault();
 
-        const fullName = $('#full-name').val();
-        const nationalId = $('#national-id').val();
-        const birthDate = $('#birth-date').val();
-        const phone = $('#phone').val();
+        var fullName = $('#full-name').val();
+        var nationalId = $('#national-id').val();
+        var birthDate = $('#birth-date').val();
+        var phone = $('#phone').val();
 
-        // تحقق الاسم (أحرف عربية فقط) 
-        const nameRegex = /^[\u0621-\u064A\s]+$/;
-        if (fullName !== "" && !nameRegex.test(fullName)) {
-            alert("الاسم يجب أن يحتوي على أحرف عربية فقط.");
-            return false;
+        var nameRegex = /^[\u0621-\u064A\s]+$/;
+        if (fullName != "" && !nameRegex.test(fullName)) {
+            alert("الاسم يجب أن يكون بالعربي فقط");
+            return;
         }
 
-        // تحقق الرقم الوطني (إلزامي، 11 خانة، يبدأ بـ 01-14) 
-        const idRegex = /^(0[1-9]|1[0-4])\d{9}$/;
+        var idRegex = /^(0[1-9]|1[0-4])\d{9}$/;
         if (!idRegex.test(nationalId)) {
-            alert("الرقم الوطني إلزامي، يجب أن يتكون من 11 خانة ويبدأ برمز محافظة صحيح (01-14).");
-            return false;
+            alert("الرقم الوطني غير صحيح");
+            return;
         }
 
-        // تحقق تاريخ الولادة (dd-mm-yyyy) 
-        const dateRegex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-(19|20)\d\d$/;
-        if (birthDate !== "" && !dateRegex.test(birthDate)) {
-            alert("تاريخ الولادة يجب أن يكون بالتنسيق التالي: dd-mm-yyyy");
-            return false;
+        var dateRegex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-(19|20)\d\d$/;
+        if (birthDate != "" && !dateRegex.test(birthDate)) {
+            alert("تاريخ الميلاد غير صحيح");
+            return;
         }
 
-        // تحقق الموبايل (Syriatel أو MTN) 
-        const phoneRegex = /^(09(3|8|9|4|5|6))\d{7}$/;
-        if (phone !== "" && !phoneRegex.test(phone)) {
-            alert("رقم الموبايل يجب أن يطابق شبكتي سيريتل أو MTN.");
-            return false;
+        var phoneRegex = /^(09(3|8|9|4|5|6))\d{7}$/;
+        if (phone != "" && !phoneRegex.test(phone)) {
+            alert("رقم الهاتف غير صحيح");
+            return;
         }
 
-        // حساب المبلغ والضريبة 5% وإظهار النتيجة 
-        let total = 0;
-        let mealsSummary = "الوجبات المختارة:\n";
+        var total = 0;
+        var text = "الوجبات:\n";
+
         $('.select-meal:checked').each(function() {
-            const price = parseInt($(this).data('price'));
+            var price = parseInt($(this).data('price'));
             total += price;
-            mealsSummary += "- " + $(this).data('name') + "\n";
+            text += "- " + $(this).data('name') + "\n";
         });
 
-        const tax = total * 0.05;
-        const finalTotal = total + tax;
+        var tax = total * 0.05;
+        var finalTotal = total + tax;
 
-        alert("تم قبول الطلب!\n\n" + mealsSummary + 
-              "\nالمجموع: " + total.toLocaleString() + " ل.س" +
-              "\nالضريبة (5%): " + tax.toLocaleString() + " ل.س" +
-              "\nالمبلغ الإجمالي المترتب: " + finalTotal.toLocaleString() + " ل.س");
+        alert(
+            "تم الطلب\n\n" +
+            text +
+            "\nالمجموع: " + total +
+            "\nالضريبة: " + tax +
+            "\nالإجمالي: " + finalTotal
+        );
     });
+
 });
